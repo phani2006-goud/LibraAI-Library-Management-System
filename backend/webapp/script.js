@@ -1,8 +1,6 @@
 
 
-const BACKEND_URL = "YOUR_BACKEND_URL/LibraryApp";
-
-
+const BACKEND_URL = "https://libraai-library-management-system-jvy8.onrender.com/LibraryApp";
 /* LOAD STATISTICS */
 
 function loadStats() {
