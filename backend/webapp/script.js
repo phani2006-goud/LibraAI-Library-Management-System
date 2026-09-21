@@ -209,7 +209,9 @@ function searchBooks() {
                         Available Copies:
                         ${book.quantity}
                     </p>
-
+<button onclick='speakBookDetails(${JSON.stringify(book)})'>
+    🔊 Speak Details
+</button>
                 `;
 
                 result.appendChild(card);
