@@ -441,7 +441,21 @@ footer p {
     .rack-search button {
         width: 100%;
     }
+.speak-button {
+    display: block;
+    margin-top: 15px;
+    padding: 10px 18px;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
 
+.speak-button:hover {
+    opacity: 0.8;
+}
     .section-heading h2,
     .about h2,
     .rack-content h2 {
