@@ -131,105 +131,100 @@ function speakBookDetails(book) {
 }
 /* SEARCH BOOKS */
 
+/* SEARCH BOOKS */
 function searchBooks() {
 
-    const input =
-        document.getElementById("searchInput");
-
-    const query =
-        input.value.trim();
-
-    const result =
-        document.getElementById("searchResult");
-
+    const input = document.getElementById("searchInput");
+    const query = input.value.trim();
+    const result = document.getElementById("searchResult");
 
     if (!query) {
-
-        result.innerHTML =
-            "<p>Please enter a book title, author or category.</p>";
-
+        result.innerHTML = "<p>Please enter a book title, author or category.</p>";
         return;
     }
 
-
-    fetch(
-        BACKEND_URL +
-        "/search?q=" +
-        encodeURIComponent(query)
-    )
-
+    fetch(BACKEND_URL + "/search?q=" + encodeURIComponent(query))
         .then(response => response.json())
-
         .then(data => {
 
             result.innerHTML = "";
 
             if (!data.length) {
-
-                result.innerHTML =
-                    "<p>No matching books found.</p>";
-
+                result.innerHTML = "<p>No matching books found.</p>";
                 return;
             }
 
-
             data.forEach(book => {
 
-                const card =
-                    document.createElement("div");
+                const card = document.createElement("div");
 
-                card.className =
-                    "search-result-card";
+                card.className = "search-result-card";
 
                 card.innerHTML = `
-
                     <h3>${escapeHtml(book.title)}</h3>
 
-                    <p>
-                        Author:
-                        ${escapeHtml(book.author)}
-                    </p>
+                    <p>Author: ${escapeHtml(book.author)}</p>
 
-                    <p>
-                        Category:
-                        ${escapeHtml(book.category)}
-                    </p>
+                    <p>Category: ${escapeHtml(book.category)}</p>
 
-                    <p>
-                        Rack:
+                    <p>Rack:
                         <strong>${escapeHtml(book.rack_no)}</strong>
                     </p>
 
-                    <p>
-                        Shelf:
+                    <p>Shelf:
                         <strong>${escapeHtml(book.shelf_no)}</strong>
                     </p>
 
-                    <p>
-                        Available Copies:
-                        ${book.quantity}
-                    </p>
-<button onclick='speakBookDetails(${JSON.stringify(book)})'>
-    🔊 Speak Details
-</button>
+                    <p>Available Copies: ${book.quantity}</p>
+
+                    <button class="speak-button"
+                            data-title="${escapeHtml(book.title)}"
+                            data-author="${escapeHtml(book.author)}"
+                            data-category="${escapeHtml(book.category)}"
+                            data-rack="${escapeHtml(book.rack_no)}"
+                            data-shelf="${escapeHtml(book.shelf_no)}"
+                            data-quantity="${book.quantity}">
+                        🔊 Speak Details
+                    </button>
                 `;
 
                 result.appendChild(card);
 
+                const speakButton =
+                    card.querySelector(".speak-button");
+
+                speakButton.addEventListener("click", function () {
+
+                    const text =
+                        "Book found. " +
+                        "Title: " + this.dataset.title + ". " +
+                        "Author: " + this.dataset.author + ". " +
+                        "Category: " + this.dataset.category + ". " +
+                        "Rack number: " + this.dataset.rack + ". " +
+                        "Shelf number: " + this.dataset.shelf + ". " +
+                        "Available copies: " + this.dataset.quantity + ".";
+
+                    const speech =
+                        new SpeechSynthesisUtterance(text);
+
+                    speech.rate = 0.9;
+                    speech.pitch = 1;
+                    speech.volume = 1;
+
+                    window.speechSynthesis.cancel();
+
+                    window.speechSynthesis.speak(speech);
+                });
             });
-
         })
-
         .catch(error => {
 
             console.error("Search error:", error);
 
             result.innerHTML =
                 "<p>Unable to search books.</p>";
-
         });
 }
-
 
 /* RACK FINDER */
 
