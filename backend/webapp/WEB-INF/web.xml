@@ -85,4 +85,13 @@
     <servlet-name>DeleteBookServlet</servlet-name>
     <url-pattern>/delete-book</url-pattern>
 </servlet-mapping>
+ <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>LogoutServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+</servlet-mapping>        
 </web-app>
