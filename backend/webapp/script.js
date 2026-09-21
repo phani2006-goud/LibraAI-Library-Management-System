@@ -1,6 +1,6 @@
 
 
-const BACKEND_URL = "https://libraai-library-management-system-jvy8.onrender.com/LibraryApp";
+const BACKEND_URL = "/LibraryApp";
 /* LOAD STATISTICS */
 
 function loadStats() {
@@ -324,10 +324,7 @@ function escapeHtml(value) {
 
 /* START */
 
-document.addEventListener("DOMContentLoaded", function () {
-
+window.addEventListener("load", function () {
     loadStats();
-
     loadBooks();
-
 });
