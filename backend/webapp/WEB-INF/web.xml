@@ -58,4 +58,13 @@
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/register</url-pattern>
 </servlet-mapping>
+      <servlet>
+    <servlet-name>AddBookServlet</servlet-name>
+    <servlet-class>AddBookServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>AddBookServlet</servlet-name>
+    <url-pattern>/add-book</url-pattern>
+</servlet-mapping>   
 </web-app>
