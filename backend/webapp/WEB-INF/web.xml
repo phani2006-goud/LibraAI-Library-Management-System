@@ -76,4 +76,13 @@
     <servlet-name>EditBookServlet</servlet-name>
     <url-pattern>/edit-book</url-pattern>
 </servlet-mapping>
+         <servlet>
+    <servlet-name>DeleteBookServlet</servlet-name>
+    <servlet-class>DeleteBookServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>DeleteBookServlet</servlet-name>
+    <url-pattern>/delete-book</url-pattern>
+</servlet-mapping>
 </web-app>
