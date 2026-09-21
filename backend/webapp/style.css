@@ -462,3 +462,21 @@ footer p {
         font-size: 30px;
     }
 }
+/* SPEAK DETAILS BUTTON */
+
+.speak-button {
+    display: inline-block !important;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #222 !important;
+    color: white !important;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.speak-button:hover {
+    opacity: 0.8;
+}
