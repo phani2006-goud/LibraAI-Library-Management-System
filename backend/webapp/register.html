@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LibraAI - Register</title>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .register-box {
+            background: white;
+            width: 380px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 14px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            margin-top: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 22px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 18px;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="register-box">
+
+    <h1>📚 Create Account</h1>
+
+    <form action="register" method="post">
+
+        <label>Name</label>
+        <input type="text"
+               name="name"
+               placeholder="Enter your name"
+               required>
+
+        <label>Username</label>
+        <input type="text"
+               name="username"
+               placeholder="Choose a username"
+               required>
+
+        <label>Email</label>
+        <input type="email"
+               name="email"
+               placeholder="Enter your email"
+               required>
+
+        <label>Password</label>
+        <input type="password"
+               name="password"
+               placeholder="Create a password"
+               required>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <div class="links">
+        <p>Already have an account?</p>
+        <a href="login.html">Login</a>
+    </div>
+
+</div>
+
+</body>
+</html>
