@@ -67,4 +67,13 @@
     <servlet-name>AddBookServlet</servlet-name>
     <url-pattern>/add-book</url-pattern>
 </servlet-mapping>   
+         <servlet>
+    <servlet-name>EditBookServlet</servlet-name>
+    <servlet-class>EditBookServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>EditBookServlet</servlet-name>
+    <url-pattern>/edit-book</url-pattern>
+</servlet-mapping>
 </web-app>
