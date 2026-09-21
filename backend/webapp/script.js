@@ -108,7 +108,27 @@ function loadBooks() {
         });
 }
 
+/* TEXT TO SPEECH */
+function speakBookDetails(book) {
 
+    const text =
+        "Book found. " +
+        "Title: " + book.title + ". " +
+        "Author: " + book.author + ". " +
+        "Category: " + book.category + ". " +
+        "Rack number: " + book.rack_no + ". " +
+        "Shelf number: " + book.shelf_no + ". " +
+        "Available copies: " + book.quantity + ".";
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.rate = 0.9;
+    speech.pitch = 1;
+    speech.volume = 1;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+}
 /* SEARCH BOOKS */
 
 function searchBooks() {
