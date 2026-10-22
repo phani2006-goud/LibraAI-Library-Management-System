@@ -1,113 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>LibraAI - Register</title>
     <meta charset="UTF-8">
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f4f8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        .register-box {
-            background: white;
-            width: 380px;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        label {
-            display: block;
-            margin-top: 14px;
-            font-weight: bold;
-        }
-
-        input {
-            width: 100%;
-            padding: 11px;
-            margin-top: 6px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 22px;
-            border: none;
-            border-radius: 6px;
-            background: #2563eb;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .links {
-            text-align: center;
-            margin-top: 18px;
-        }
-
-        a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibraAI Registration</title>
 </head>
-
 <body>
 
-<div class="register-box">
-
-    <h1>📚 Create Account</h1>
+    <h2>Create Your LibraAI Account</h2>
 
     <form action="register" method="post">
 
-        <label>Name</label>
-        <input type="text"
-               name="name"
-               placeholder="Enter your name"
-               required>
+        <label>Full Name:</label><br>
+        <input type="text" name="name" required><br><br>
 
-        <label>Username</label>
-        <input type="text"
-               name="username"
-               placeholder="Choose a username"
-               required>
+        <label>Username:</label><br>
+        <input type="text" name="username" required><br><br>
 
-        <label>Email</label>
-        <input type="email"
-               name="email"
-               placeholder="Enter your email"
-               required>
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
 
-        <label>Password</label>
-        <input type="password"
-               name="password"
-               placeholder="Create a password"
-               required>
+        <label>Password:</label><br>
+        <input type="password" name="password"
+               minlength="12" required><br><br>
 
-        <button type="submit">Register</button>
+        <label>Account Type:</label><br>
+        <select name="role" id="role" required>
+            <option value="USER">Normal User</option>
+            <option value="ADMIN">Admin (Invitation Required)</option>
+        </select><br><br>
+
+        <div id="invitationSection" hidden>
+            <label>Admin Invitation Code:</label><br>
+            <input type="password" name="adminCode"
+                   autocomplete="off"><br><br>
+        </div>
+
+        <button type="submit">Create Account</button>
 
     </form>
 
-    <div class="links">
-        <p>Already have an account?</p>
-        <a href="login.html">Login</a>
-    </div>
+    <p>Already registered? <a href="login.html">Login</a></p>
 
-</div>
+    <script>
+        const roleSelect = document.getElementById("role");
+        const invitationSection =
+            document.getElementById("invitationSection");
+        const adminCode =
+            document.querySelector('input[name="adminCode"]');
+
+        function updateRoleFields() {
+            const isAdmin = roleSelect.value === "ADMIN";
+            invitationSection.hidden = !isAdmin;
+            adminCode.required = isAdmin;
+        }
+
+        roleSelect.addEventListener("change", updateRoleFields);
+        updateRoleFields();
+    </script>
 
 </body>
 </html>
